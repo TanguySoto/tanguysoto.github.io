@@ -17,13 +17,15 @@
     --white: #ffffff;
     --black: #000000;
     --transparent-color: #00000000;
+    --menu-gradient: linear-gradient(0deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0.4) 100%);
 
     /* fonts */
     --font-family: 'Poppins', sans-serif;
 
     /* dimensions */
     --container-width: 960px;
-    --menu-height: 100px;
+    --menu-height: 110px;
+    --menu-height-scrolled: 80px;
     --menu-height-mobile: 60px;
 
     /* shadows */
@@ -62,7 +64,7 @@ header
 {
     width: 100%;
     height: var(--menu-height);
-    background-color: var(--transparent-color);
+    background: var(--menu-gradient);
     position: fixed;
     z-index: 1000;
     transition: all 0.3s ease;
@@ -76,6 +78,7 @@ header:hover
 header.scrolled
 {
     background-color: var(--dark-color);
+    height: var(--menu-height-scrolled);
 }
 
 .anchor
@@ -160,7 +163,7 @@ header.scrolled
     font-weight: 500;
     text-decoration: none;
     position: relative;
-    transition: color 0.3s ease;
+    transition: color 0.5s ease;
 }
 
 .nav-link:hover
@@ -277,7 +280,7 @@ section h2::after
     height: 100%;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.1);
     /* Adjust darkness/opacity as needed */
     position: absolute;
     z-index: 2;
@@ -367,8 +370,8 @@ section h2::after
 
 footer
 {
-    height: var(--menu-height);
-    padding: 2.3rem 0;
+    height: var(--menu-height-scrolled);
+    padding: 1.7rem 0;
     background-color: var(--dark-color);
     color: var(--light-color);
     text-align: center;
