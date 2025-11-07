@@ -415,6 +415,7 @@ footer
     .nav-logo .logo
     {
         width: 40px;
+        margin-right: 0;
     }
 
     .nav-menu
