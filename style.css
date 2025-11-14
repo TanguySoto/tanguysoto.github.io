@@ -280,7 +280,7 @@ section h2::after
     height: 100%;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0);
     /* Adjust darkness/opacity as needed */
     position: absolute;
     z-index: 2;
