@@ -52,21 +52,16 @@ document.addEventListener('DOMContentLoaded', () => {
         document.documentElement.style.setProperty('--vh', `${vh}px`);
     }
 
-    // Set initial viewport height
-    setViewportHeight();
-
     // Update on resize and orientation change
+    window.addEventListener('load', setViewportHeight);
     window.addEventListener('resize', setViewportHeight);
-    window.addEventListener('orientationchange', () => {
-        // Small delay to ensure the browser has updated the viewport
-        setTimeout(setViewportHeight, 100);
-    });
+    window.addEventListener('orientationchange', setViewportHeight);
+
+    setViewportHeight();
 
     // --- Footer Year ---
     const currentYearSpan = document.getElementById('current-year');
     if (currentYearSpan) {
         currentYearSpan.textContent = new Date().getFullYear();
     }
-
-    // --- Initialize ---
 });

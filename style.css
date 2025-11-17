@@ -242,8 +242,6 @@ section h2::after
     width: calc(100vw - var(--scroll-width));
     height: 100vh; /* Fallback for older browsers */
     height: calc(var(--vh, 1vh) * 100); /* Use dynamic vh */
-    /* Additional fallback using CSS env() for devices that support it */
-    height: calc(100vh - env(keyboard-inset-height, 0px));
     background-color: var(--transparent-color);
     /* Fallback if video doesn't load */
     display: flex;
