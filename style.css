@@ -55,7 +55,6 @@ body
     color: var(--body-text-color);
     background-color: var(--white);
     font-family: var(--font-family);
-    /* Prevent horizontal scroll on small animations */
     overflow-x: hidden;
 }
 
@@ -75,7 +74,7 @@ header:hover
     background: rgba(0, 0, 0, 0);
     background-color: rgba(122, 122, 122, 0.15);
     backdrop-filter: blur(10px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 header.scrolled
@@ -173,14 +172,16 @@ header:hover .nav-link
     border-radius: 25px;
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 header:hover .nav-link:hover
 {
     text-decoration: none;
-    background-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    background-color: rgba(98, 0, 155, 0.2);
+    border: 1px solid rgb(192, 98, 255);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    color: #ffffff;
 }
 
 .nav-toggle
@@ -235,7 +236,16 @@ section h2::after
 
 #hero
 {
+    width: calc(100vw - var(--scroll-width));
     height: 100vh;
+    background-color: var(--transparent-color);
+    /* Fallback if video doesn't load */
+    display: flex;
+    align-items: center;
+    position: relative;
+    /* To position video background and overlay */
+    overflow: hidden;
+    /* To clip the video if it's larger */
 }
 
 .hero-video-background
@@ -246,7 +256,6 @@ section h2::after
     left: 0;
     position: absolute;
     z-index: 1;
-    /* Behind overlay and content */
 }
 
 .hero-video-background iframe
@@ -256,8 +265,6 @@ section h2::after
     top: 0;
     left: 0;
     position: absolute;
-    pointer-events: none;
-    /* Allow clicks to pass through to content */
 }
 
 .hero-overlay
@@ -267,10 +274,8 @@ section h2::after
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0);
-    /* Adjust darkness/opacity as needed */
     position: absolute;
     z-index: 2;
-    /* Above video, below content */
 }
 
 .youtube-link
@@ -294,9 +299,11 @@ section h2::after
 
 .youtube-link:hover
 {
-    background-color: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    background-color: rgba(98, 0, 155, 0.2);
+    border: 1px solid rgb(192, 98, 255);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    color: #ffffff;
 }
 
 #contact .social-links
@@ -360,11 +367,12 @@ footer
         height: var(--menu-height-mobile);
     }
 
-    header:hover
+    header:hover .nav-link
     {
-        background: transparent;
-        background-color: rgba(150, 150, 150, 0.5);
+        background-color: transparent;
+        text-decoration: none;
         backdrop-filter: blur(0px);
+        border: 0 solid rgba(255, 255, 255, 0.2);
         box-shadow: 0 0 0 rgba(0, 0, 0, 0);
     }
 
@@ -398,7 +406,7 @@ footer
         gap: 1.5rem;
         padding: 1.5rem 0;
         background: transparent;
-        background-color: rgba(150, 150, 150, 0.5);
+        background-color: var(--dark-color);
         flex-direction: column;
         text-align: center;
         position: fixed;
@@ -420,6 +428,20 @@ footer
         font-size: 1.1rem;
         padding: 1rem;
         display: block;
+        background-color: transparent;
+        text-decoration: none;
+        backdrop-filter: blur(0px);
+        border: 0 solid rgba(255, 255, 255, 0);
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+
+    .nav-link:hover
+    {
+        background-color: transparent;
+        text-decoration: none;
+        backdrop-filter: blur(0px);
+        border: 0 solid rgba(255, 255, 255, 0);
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
     }
 
     .nav-toggle
@@ -456,7 +478,7 @@ footer
     .youtube-link
     {
         bottom: 1.5rem;
-        right: 1.5rem;
+        right: 1.2rem;
         padding: 0.6rem 1.2rem;
         font-size: 0.8rem;
     }
