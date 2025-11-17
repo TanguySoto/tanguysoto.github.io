@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             navMenu.classList.remove('active');
             
             // Put focus back to body to remove focus from navigation
-            document.body.focus();
+            document.getElementById("main").focus();
         });
     });
 
