@@ -23,7 +23,7 @@
     --font-family: 'Poppins', sans-serif;
 
     /* dimensions */
-    --container-max-width: 90%;
+    --container-max-width: 85%;
     --menu-height: 110px;
     --menu-height-scrolled: 80px;
     --menu-height-mobile: 70px;
@@ -93,15 +93,13 @@ header.scrolled
 {
     width: 100%;
     height: 100%;
-    padding: 0 1rem;
 }
 
 .nav-container
 {
     max-width: var(--container-max-width);
     height: 100%;
-    margin: 0 auto;
-    padding: 0 1rem;
+    margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -208,11 +206,12 @@ header.scrolled
 {
     max-width: var(--container-max-width);
     margin: 0 auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 section
 {
-    padding: 3rem 1rem;
     text-align: center;
 }
 
@@ -239,16 +238,7 @@ section h2::after
 
 #hero
 {
-    width: 100vw;
     height: 100vh;
-    background-color: var(--transparent-color);
-    /* Fallback if video doesn't load */
-    display: flex;
-    align-items: center;
-    position: relative;
-    /* To position video background and overlay */
-    overflow: hidden;
-    /* To clip the video if it's larger */
 }
 
 .hero-video-background
@@ -287,47 +277,29 @@ section h2::after
     /* Above video, below content */
 }
 
-#hero .container
+.youtube-link
 {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    /* Stack content vertically */
-    align-items: center;
-    /* Center content horizontally */
-    justify-content: center;
-    /* Center content vertically */
-    position: relative;
-    /* Ensure content is above video and overlay */
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    padding: 0.8rem 1.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
     z-index: 3;
 }
 
-#hero h2
+.youtube-link:hover
 {
-    font-size: 2.7rem;
-    margin-bottom: 0;
-    color: var(--white);
-    /* Changed for readability over video */
-}
-
-#hero h2::after
-{
-    /* No underline for hero title */
-    display: none;
-}
-
-#hero p
-{
-    font-size: 1.4rem;
-    max-width: 80vw;
-    margin: 0 auto;
-    color: var(--white);
-    /* Changed for readability over video */
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 #contact .social-links
@@ -371,10 +343,11 @@ section h2::after
 footer
 {
     height: var(--menu-height-scrolled);
-    padding: 1.7rem 0;
     background-color: var(--dark-color);
     color: var(--light-color);
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Responsive adjustments */
@@ -393,12 +366,6 @@ footer
     header.scrolled
     {
         height: var(--menu-height-mobile);
-    }
-
-    /* Mobile Navigation */
-    .nav-container
-    {
-        padding: 0 1rem;
     }
 
     .nav-logo h1
@@ -480,10 +447,17 @@ footer
         font-size: 2.3rem;
     }
 
+    .youtube-link
+    {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+    }
+
     footer
     {
         height: var(--menu-height-mobile);
-        padding: 1.1rem 0;
     }
 }
 
