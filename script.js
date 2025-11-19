@@ -1,18 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- Navigation Header Scroll Effect ---
     const header = document.querySelector('header');
-    
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+
     function handleScroll() {
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
+            // Hide scroll indicator when user starts scrolling
+            scrollIndicator.style.opacity = '0';
+            scrollIndicator.style.visibility = 'hidden';
         } else {
             header.classList.remove('scrolled');
+            // Show scroll indicator when back at top
+            scrollIndicator.style.opacity = '0.7';
+            scrollIndicator.style.visibility = 'visible';
         }
     }
 
     // Add scroll event listener
     window.addEventListener('scroll', handleScroll);
-    
+
     // Call once on load to set initial state
     handleScroll();
 
@@ -30,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', () => {
             mobileMenu.classList.remove('active');
             navMenu.classList.remove('active');
-            
+
             // Put focus back to body to remove focus from navigation
             document.getElementById("main").focus();
         });
