@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             header.classList.remove('scrolled');
             // Show scroll indicator when back at top
-            scrollIndicator.style.opacity = '1';
+            scrollIndicator.style.opacity = '0.9';
             scrollIndicator.style.visibility = 'visible';
         }
     }
